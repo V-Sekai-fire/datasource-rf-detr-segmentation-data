@@ -24,15 +24,15 @@ Same source images as
 
 ## Schema (per row)
 
-| column | type | meaning |
-|---|---|---|
-| `image_id` | int64 | unique id (namespaced by source split) |
-| `file_name` | string | original file name |
-| `width`, `height` | int32 | image dimensions (px) |
-| `image_bytes` | binary | the JPEG file, byte-identical to the Roboflow export |
-| `category_id` | list<int64> | one entry per annotation instance |
-| `bbox_xywh` | list<list<float>> | COCO-native `[x, y, w, h]`, absolute pixels |
-| `segmentation_json` | list<string> | one JSON-encoded COCO segmentation per instance (polygon list-of-lists) |
+| column              | type              | meaning                                                                 |
+| ------------------- | ----------------- | ----------------------------------------------------------------------- |
+| `image_id`          | int64             | unique id (namespaced by source split)                                  |
+| `file_name`         | string            | original file name                                                      |
+| `width`, `height`   | int32             | image dimensions (px)                                                   |
+| `image_bytes`       | binary            | the JPEG file, byte-identical to the Roboflow export                    |
+| `category_id`       | list<int64>       | one entry per annotation instance                                       |
+| `bbox_xywh`         | list<list<float>> | COCO-native `[x, y, w, h]`, absolute pixels                             |
+| `segmentation_json` | list<string>      | one JSON-encoded COCO segmentation per instance (polygon list-of-lists) |
 
 Images are already square-letterboxed to 432x432 by Roboflow's own
 preprocessing (auto-orient + "Fit (black edges) in" resize) -- that
